@@ -1,5 +1,6 @@
 package cg.jpademo.service;
 
+import cg.jpademo.entities.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -16,6 +17,25 @@ public class ProductService {
 		manager = factory.createEntityManager();
 
 	}
+	
+	public void addProduct ( Product product)
+	{
+		manager.getTransaction().begin();
+		// temp change not reflecting in database table
+		manager.persist(product);				
+		// will execute insert query and store in database table
+		manager.getTransaction().commit();
+		
+	}
+	public Product findById ( int pid)
+	{
+		return manager.find(Product.class, pid);
+	}
+	
+	
+	
+	
+	
 	
 	
 }

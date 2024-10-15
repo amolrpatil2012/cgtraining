@@ -23,11 +23,15 @@ public class Product {
 	{
 		
 	}
-	public Product(int pid, String pname, double price) {
+	public Product( String pname, double price) {
 		super();
-		this.pid = pid;
+		
 		this.pname = pname;
 		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + "]";
 	}
 	public int getPid() {
 		return pid;
