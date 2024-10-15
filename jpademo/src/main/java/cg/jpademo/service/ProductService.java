@@ -32,7 +32,24 @@ public class ProductService {
 		return manager.find(Product.class, pid);
 	}
 	
+	// call from main ps.delete(4)
+	public void delete ( int pid)
+	{
+		Product p = findById(pid);
+		manager.getTransaction().begin();
+		manager.remove(p);
+		manager.getTransaction().commit();
+	}
 	
+	public void updateProduct ( Product newProduct , int pid)
+	{
+		Product p = findById(pid);
+		manager.getTransaction().begin();
+		p.setPname(newProduct.getPname());
+		p.setPrice(newProduct.getPrice());
+		manager.persist(p);
+		manager.getTransaction().commit();
+	}
 	
 	
 	
