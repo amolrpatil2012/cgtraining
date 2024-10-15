@@ -1,5 +1,7 @@
 package cg.jpademo;
 
+import cg.jpademo.service.ProductService;
+
 /**
  * Hello world!
  *
@@ -8,6 +10,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	ProductService ps = new ProductService();
     }
 }
