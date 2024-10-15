@@ -1,9 +1,12 @@
 package cg.jpademo.service;
 
+import java.util.List;
+
 import cg.jpademo.entities.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 
 public class ProductService {
 
@@ -31,9 +34,8 @@ public class ProductService {
 	{
 		return manager.find(Product.class, pid);
 	}
-	
-	// call from main ps.delete(4)
-	public void delete ( int pid)
+		
+	public void deleteProduct ( int pid)
 	{
 		Product p = findById(pid);
 		manager.getTransaction().begin();
@@ -50,6 +52,34 @@ public class ProductService {
 		manager.persist(p);
 		manager.getTransaction().commit();
 	}
+	
+	// Select * From products ---> SQL
+	// Select a From Product a ---> JPQL
+	
+	public List<Product> findAllProducts()
+	{
+		String query = "Select a From Product a";
+		TypedQuery<Product> p = manager.createQuery(query,Product.class);
+	
+		return p.getResultList();
+	}
+	
+	public List<Product> findProductsGreaterThanGivenPrice ( int price)
+	{
+		String query = "Select a from Product a Where a.price > :pp";
+		TypedQuery<Product> p = manager.createQuery(query,Product.class);
+		p.setParameter("pp" , price);
+		return p.getResultList();
+		
+	}
+
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -19,6 +19,7 @@ public class App
 //    	ps.addProduct(new Product("Mobile" , 10000));
 //    	ps.addProduct(new Product("Camera" , 5000));
     	
-    	System.out.println(ps.findById(2));
+    	//System.out.println(ps.findById(2));
+    	ps.findAllProducts().forEach(System.out::println);
     }
 }
