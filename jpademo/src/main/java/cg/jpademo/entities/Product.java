@@ -1,10 +1,14 @@
 package cg.jpademo.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity							// compulsory
@@ -19,6 +23,17 @@ public class Product {
 	private String pname;
 	private double price;
 	
+	@OneToOne(cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name = "detailsid")
+	private ProductDetails details;
+	
+	
+	public ProductDetails getDetails() {
+		return details;
+	}
+	public void setDetails(ProductDetails details) {
+		this.details = details;
+	}
 	public Product()
 	{
 		

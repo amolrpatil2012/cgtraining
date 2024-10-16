@@ -58,7 +58,7 @@ public class ProductService {
 	
 	public List<Product> findAllProducts()
 	{
-		String query = "Select a From Product a";
+		String query = " From Product";
 		TypedQuery<Product> p = manager.createQuery(query,Product.class);
 	
 		return p.getResultList();
@@ -66,7 +66,7 @@ public class ProductService {
 	
 	public List<Product> findProductsGreaterThanGivenPrice ( int price)
 	{
-		String query = "Select a from Product a Where a.price > :pp";
+		String query = "from Product a Where a.price > :pp";
 		TypedQuery<Product> p = manager.createQuery(query,Product.class);
 		p.setParameter("pp" , price);
 		return p.getResultList();
