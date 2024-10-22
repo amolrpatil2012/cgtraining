@@ -4,7 +4,11 @@ public class HelloWorld {
 	
 	private String message;
 	
-	public HelloWorld() {}
+	public HelloWorld() {
+		
+		System.out.println("HelloWorld Object is Created");
+		
+	}
 
 	@Override
 	public String toString() {

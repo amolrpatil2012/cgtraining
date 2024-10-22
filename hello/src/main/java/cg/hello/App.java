@@ -17,13 +17,17 @@ public class App
         ApplicationContext context =
         		new ClassPathXmlApplicationContext("config.xml");
         
-//        HelloWorld hello = context.getBean(HelloWorld.class);
-//        hello.setMessage("Hello World");
-//        System.out.println(hello.getMessage());
-//        
+        HelloWorld hello = context.getBean(HelloWorld.class);
+        hello.setMessage("Hello World");
+        System.out.println(hello.getMessage());
         
-        Emp e = context.getBean(Emp.class);
-        System.out.println(e);
+        HelloWorld hello1 = context.getBean(HelloWorld.class);
+        System.out.println(hello1.getMessage());
+        
+//        
+//        
+//        Emp e = context.getBean(Emp.class);
+//        System.out.println(e);
         
         
         

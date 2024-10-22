@@ -5,7 +5,7 @@
 <beans>
 
 <!-- bean definitions here -->
-<bean class="cg.hello.beans.HelloWorld" id="h">
+<bean class="cg.hello.beans.HelloWorld" id="h" scope="prototype">
 </bean>
 <bean class="cg.hello.beans.Address" id="addr">
 	<constructor-arg value="Pune"></constructor-arg>

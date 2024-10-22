@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+<bean class="cg.springxmlsetter.Address" id="addr">
+	<property name="city" value="Pune"></property>
+	<property name="country" value="India"></property>
+</bean>
+
+<bean class="cg.springxmlsetter.Emp" id="e" scope="prototype">
+	<property name="empid" value="1"></property>
+	<property name="empName" value="Rohit"></property>
+	<property name="empSalary" value="25000"></property>
+	<property name="address" ref="addr"></property>
+	<property name="mobileNos">
+		<list>
+			<value>1234</value>
+			<value>3456</value>
+		</list>
+	</property>
+	<property name="skills">
+	<map>
+		<entry key="it" value="Java" />
+		<entry key="power-skills" value="Presentation" />
+	</map>	
+	</property>
+</bean>
+</beans>
