@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+<!-- bean definitions here -->
+<bean class="cg.hello.beans.HelloWorld" id="h">
+</bean>
+<bean class="cg.hello.beans.Address" id="addr">
+	<constructor-arg value="Pune"></constructor-arg>
+	<constructor-arg value="India"></constructor-arg>
+</bean>
+<bean class="cg.hello.beans.Emp" id="e">
+	<constructor-arg type="int" value="1"></constructor-arg>
+	<constructor-arg value="Rohit"></constructor-arg>
+	<constructor-arg type="int" value="10000"></constructor-arg>
+	<constructor-arg>
+		<ref bean="addr"/>
+	</constructor-arg>	
+	<constructor-arg>
+		<list>
+			<value>122345</value>
+			<value>34345</value>
+			<value>342345</value>		
+		</list>	
+	</constructor-arg>
+	<constructor-arg>
+	<map>
+		<entry key="it" value="Java" />
+		<entry key="power-skills" value="Presentation" />
+	</map>
+	
+	</constructor-arg>
+</bean>
+
+</beans>
