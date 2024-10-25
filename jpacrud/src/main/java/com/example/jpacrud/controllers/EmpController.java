@@ -3,8 +3,11 @@ package com.example.jpacrud.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +34,28 @@ public class EmpController {
 	{
 		return service.findAll();
 	}
+	// http://localhost:8080/emps/1
+	@GetMapping("/emps/{id}")
+	public Emp findById(@PathVariable long id)
+	{
+		return service.findById(id);
+	}
+	// http://localhost:8080/emps/1
+	@DeleteMapping("/emps/{id}")
+	public String deleteById ( @PathVariable long id)
+	{
+		return service.delete(id);
+	}
+	// http://localhost:8080/emps/1
+	@PutMapping("/emps/{id}")
+	public Emp update ( @RequestBody Emp emp , @PathVariable long id)
+	{
+			return service.update(emp, id);
+	}
+	
+	
+	
+	
 	
 	
 }

@@ -25,4 +25,27 @@ public class EmpServiceImpl implements EmpService {
 		return repo.findAll();
 	}
 
+	@Override
+	public Emp update(Emp newEmp, long empid) {
+		// TODO Auto-generated method stub
+		Emp oldEmp = findById(empid);
+		oldEmp.setName(newEmp.getName());
+		oldEmp.setSalary(newEmp.getSalary());
+		return null;
+	}
+
+	@Override
+	public String delete(long empid) {
+		Emp emp = findById(empid);
+		repo.delete(emp);
+		return "Deleted Successfully";
+		
+	}
+
+	@Override
+	public Emp findById(long empid) {
+		// TODO Auto-generated method stub
+		return repo.findById(empid).orElseThrow(()->new RuntimeException("Not Found"));
+	}
+
 }
