@@ -15,6 +15,7 @@ public class ProductMapper {
 		pdto.setPrice(pd.getPrice());
 		pdto.setCatname(cd.getCatname());
 		pdto.setCatdesc(cd.getDesc());
+	
 		return pdto;
 	}
 	public static ProductDto productToProductDto ( Product pd)
@@ -23,6 +24,7 @@ public class ProductMapper {
 		pdto.setPid(pd.getPid());
 		pdto.setName(pd.getName());
 		pdto.setPrice(pd.getPrice());
+		pdto.setCid(pd.getCatid());
 		return pdto;
 	}
 	public static Product productDtoToProduc ( ProductDto pdto)
@@ -31,6 +33,7 @@ public class ProductMapper {
 		pd.setPid(pdto.getPid());
 		pd.setName(pdto.getName());
 		pd.setPrice(pdto.getPrice());
+		pd.setCatid(pdto.getCid());
 		return pd;
 	}
 	
