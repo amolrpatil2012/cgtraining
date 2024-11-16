@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.dto.CategoryDto;
 
-@FeignClient(url="http://localhost:8080",name = "deptclient")
+@FeignClient(url="http://localhost:8080" , name="categoryms")
 
 public interface APIClient {
 
