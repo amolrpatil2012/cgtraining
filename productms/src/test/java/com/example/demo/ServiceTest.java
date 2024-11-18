@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,6 +23,7 @@ import com.example.demo.entities.Product;
 import com.example.demo.exceptions.ProductNotFoundException;
 import com.example.demo.mapper.ProductMapper;
 import com.example.demo.repo.ProductRepo;
+import com.example.demo.service.ProductServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class ServiceTest {

@@ -1,5 +1,4 @@
-package com.example.demo.repo;
-
+package com.example.demo;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,6 +19,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.example.demo.entities.Product;
 import com.example.demo.exceptions.ProductNotFoundException;
+import com.example.demo.repo.ProductRepo;
 
 
 public class ProductRepoTest {
