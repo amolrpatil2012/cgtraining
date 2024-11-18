@@ -20,10 +20,14 @@ import com.example.demo.dto.ProductResponseDto;
 import com.example.demo.entities.Product;
 import com.example.demo.service.ProductService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/products")		// localhost:8080/products
+@Tag(description = "Product Service" , name="ProductCRUD")
 public class ProductController {
 	
 	@Autowired
@@ -31,6 +35,17 @@ public class ProductController {
 	
 	//http://localhost:8080/products
 	@PostMapping
+	@Operation(
+			summary = "Saving Product",
+			description = "Saving Product"
+			
+			)
+	@ApiResponse(
+			
+			responseCode = "201",
+			description = "Will Retutn HttpStatus.CREATED"
+			
+			)
 	public ResponseEntity<ProductDto> save (@Valid @RequestBody ProductDto product)
 	{
 		return new ResponseEntity<ProductDto>(service.save(product),HttpStatus.CREATED);
