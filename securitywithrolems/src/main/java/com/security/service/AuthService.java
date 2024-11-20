@@ -37,6 +37,7 @@ public class AuthService {
         Set<Role> roles = new HashSet<>();
         roles.add(userRole);
         credential.setRoles(roles);
+        
         repository.save(credential);
         return "user added to the system";
     }

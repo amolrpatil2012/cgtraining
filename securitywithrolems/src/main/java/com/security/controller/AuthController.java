@@ -33,8 +33,9 @@ public class AuthController {
 
     @PostMapping("/token")
     public String getToken(@RequestBody AuthRequest authRequest) {
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
-        if (authenticate.isAuthenticated()) {
+    	Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
+        System.out.println(authenticate.isAuthenticated());
+    	if (authenticate.isAuthenticated()) {
         	 Set<Role> roles = service.getUserRoles(authRequest.getUsername());
             return service.generateToken(authRequest.getUsername(),roles);
         } else {

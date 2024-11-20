@@ -17,8 +17,8 @@ spring:
          filters:
            - AuthenticationFilter
 
-       - id: securityms
-         uri: lb://SECURITYMS
+       - id: securitywithrolems
+         uri: lb://SECURITYWITHROLEMS
          predicates:
            - Path=/auth/**
 
